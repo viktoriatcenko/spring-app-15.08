@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <bean id="catBean" class="ru.maxima.model.Cat">-->
+<!--        <constructor-arg value="Sherlock"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="dogBean" class="ru.maxima.model.Dog">-->
+<!--        <constructor-arg value="5"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="duck" class="ru.maxima.model.Duck">-->
+<!--        <constructor-arg index="0" value="Donald" />-->
+<!--        <constructor-arg index="1" value="9" />-->
+<!--    </bean>-->
+
+<!--    <bean id="tiger" class="ru.maxima.model.Tiger">-->
+<!--        <constructor-arg index="0" value="60" />-->
+<!--        <constructor-arg index="1" value="50" />-->
+<!--        <constructor-arg index="2" value="40" />-->
+<!--    </bean>-->
+
+<!--    <bean id="wolfBean" class="ru.maxima.model.Wolf">-->
+<!--    </bean>-->
+
+    <context:property-placeholder location="player.properties"/>
+
+    <bean id="player"
+          class="ru.maxima.di_radio.RadioPlayer"
+          scope="prototype"
+          init-method="onStart"
+          destroy-method="onFinish"
+    >
+
+        <property name="radio" ref="maximum"/>
+        <property name="name" value="${radioPlayer.name}"/>
+        <property name="volume" value="${radioPlayer.volume}"/>
+    </bean>
+
+    <bean id="maximum" class="ru.maxima.di_radio.MaximumFM">
+    </bean>
+
+    <bean id="retro" class="ru.maxima.di_radio.RetroFM">
+    </bean>
+
+</beans>
