@@ -11,6 +11,9 @@ public class Main {
         ClassPathXmlApplicationContext context
                 = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+
+
+
 //        Radio radio1 = context.getBean("maximum", Radio.class);
 //        RadioPlayer player = new RadioPlayer(radio1);
 //
